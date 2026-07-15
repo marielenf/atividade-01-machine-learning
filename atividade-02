@@ -1,0 +1,137 @@
+1. Escreva uma função que receba uma lista de números e retorne outra lista com os números ímpares.
+def numeros_impares(lista):
+    impares = []
+
+    for numero in lista:
+        if numero % 2 != 0:
+            impares.append(numero)
+
+    return impares
+
+lista = [1, 2, 3, 4, 5, 6, 7]
+print(numeros_impares(lista))
+
+
+2. Escreva uma função que receba uma lista de números e retorne outra lista com os números primos presentes.
+
+def numeros_primos(lista):
+    primos = []
+
+    for numero in lista:
+        if numero > 1:
+            primo = True
+
+            for i in range(2, numero):
+                if numero % i == 0:
+                    primo = False
+                    break
+
+            if primo:
+                primos.append(numero)
+
+    return primos
+
+
+3. Escreva uma função que receba duas listas e retorne outra lista com os elementos que estão presentes em apenas uma das listas.
+def diferenca_listas(lista1, lista2):
+
+    resultado = []
+
+    for item in lista1:
+        if item not in lista2:
+            resultado.append(item)
+
+    for item in lista2:
+        if item not in lista1:
+            resultado.append(item)
+
+    return resultado
+
+
+lista1 = [1, 2, 3, 4]
+lista2 = [3, 4, 5, 6]
+
+print(diferenca_listas(lista1, lista2))
+
+
+lista = [2, 4, 5, 6, 7, 8, 11]
+print(numeros_primos(lista))
+
+
+4. Dada uma lista de números inteiros, escreva uma função para encontrar o segundo maior valor da lista.
+
+def segundo_maior(lista):
+    lista.sort()
+    return lista[-2]
+
+
+numeros = [10, 5, 20, 15]
+print(segundo_maior(numeros))
+
+
+5. Crie uma função que receba uma lista de tuplas contendo nome e idade e retorne a lista ordenada pelo nome.
+
+def ordenar_por_nome(lista):
+    return sorted(lista)
+
+
+pessoas = [
+    ("Carlos", 30),
+    ("Ana", 22),
+    ("Bruno", 28)
+]
+
+print(ordenar_por_nome(pessoas))
+
+6. Como identificar e tratar outliers em uma coluna numérica usando desvio padrão ou quartis?
+
+Os outliers são valores muito diferentes dos demais dados.
+
+Existem duas formas comuns de identificá-los:
+
+Desvio padrão: considera como outliers os valores muito acima ou abaixo da média.
+Quartis (IQR): calcula os quartis e identifica valores que ficam fora do intervalo esperado.
+
+Depois de identificar os outliers, podemos:
+
+remover esses valores;
+substituir por outro valor, como a média ou a mediana;
+ou manter os dados, caso eles sejam realmente importantes para a análise.
+
+7. Como concatenar vários DataFrames, mesmo que tenham colunas diferentes?
+
+import pandas as pd
+
+resultado = pd.concat([df1, df2], axis=0)
+
+8. Utilizando pandas, como realizar a leitura de um arquivo CSV em um DataFrame e exibir as primeiras linhas?
+
+import pandas as pd
+
+df = pd.read_csv("arquivo.csv")
+
+print(df.head())
+
+9. Utilizando pandas, como selecionar uma coluna específica e filtrar linhas em um DataFrame com base em uma condição?
+
+import pandas as pd
+
+df = pd.read_csv("arquivo.csv")
+
+resultado = df[df["idade"] > 18]
+
+print(resultado["nome"])
+
+10. Utilizando pandas, como lidar com valores ausentes (NaN) em um DataFrame?
+
+Remover linhas com NaN:
+
+df = df.dropna()
+
+Preencher com zero:
+
+df = df.fillna(0)
+
+Também é possível preencher com a média, mediana ou outro valor que faça sentido para a análise dos dados.
+
+
